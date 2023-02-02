@@ -1,3 +1,4 @@
+import 'package:explore/pages/home_page/home_page_components/common_column.dart';
 import 'package:explore/styles/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:explore/pages/pages.dart';
@@ -86,28 +87,17 @@ class MainPage extends StatelessWidget {
                     ///////List View
                     Expanded(
                       flex: 2,
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundColor: AppColor.secondaryColor,
-                          radius: 27,
-                          child: CircleAvatar(
-                            radius: 25,
-                            backgroundImage: AssetImage('assets/g1.jpg'),
-                          ),
-                        ),
-                        title: Text(
-                          "WednesDay",
-                          style: HeaderFonts.teritaryText,
-                        ),
-                        trailing: Text("2:56pm"),
-                        subtitle: Text("Recently online"),
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (BuildContext context) =>
-                                      FirstPage()));
-                        },
+                      child: ListView(
+                        children: [
+                          CommonColumn(),
+                          CommonColumn(),
+                          CommonColumn(),
+                          CommonColumn(),
+                          CommonColumn(),
+                          CommonColumn(),
+                          CommonColumn(),
+                          CommonColumn(),
+                        ],
                       ),
                     ),
                   ],

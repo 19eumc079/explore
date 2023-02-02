@@ -3,6 +3,7 @@ import 'package:explore/pages/home_page/home_page.dart';
 import 'package:explore/styles/styles.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:explore/pages/pages.dart';
 
 class FirstPage extends StatefulWidget {
   const FirstPage({super.key});
@@ -12,13 +13,30 @@ class FirstPage extends StatefulWidget {
 }
 
 class _FirstPage extends State<FirstPage> {
+  String notificationTitle = 'No Title';
+  String notificationBody = 'No Body';
+  String notificationData = 'No Data';
+
   final userMesController = TextEditingController();
   final userIdController = '1';
   late DatabaseReference ref;
   @override
   void initState() {
     ref = FirebaseDatabase.instance.ref().child('donechat');
+
+    final firebaseMessaging = FCM();
+    firebaseMessaging.setNotifications();
+
+    firebaseMessaging.streamCtlr.stream.listen(_changeData);
+    firebaseMessaging.bodyCtlr.stream.listen(_changeBody);
+    firebaseMessaging.titleCtlr.stream.listen(_changeTitle);
+
+    super.initState();
   }
+
+  _changeData(String msg) => setState(() => notificationData = msg);
+  _changeBody(String msg) => setState(() => notificationBody = msg);
+  _changeTitle(String msg) => setState(() => notificationTitle = msg);
 
   @override
   Widget build(BuildContext context) {

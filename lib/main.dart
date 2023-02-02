@@ -10,6 +10,11 @@ void main() async {
   runApp(const MyApp());
 }
 
+Future init() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
