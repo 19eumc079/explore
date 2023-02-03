@@ -114,8 +114,9 @@ class _ChatBoxState extends State<ChatBox> {
                     fillColor: AppColor.secondaryColor,
                     filled: true,
                     border: OutlineInputBorder(
-                        borderSide: BorderSide.none,
-                        borderRadius: BorderRadius.circular(30)),
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(30),
+                    ),
                     prefixIcon: Icon(Icons.emoji_emotions_outlined),
                     hintText: "Expore your jutsu...."),
               ),

@@ -1,5 +1,8 @@
 import 'dart:ui';
 
+import 'package:explore/models/home_page_model/home_page_model.dart';
+import 'package:firebase_database/firebase_database.dart';
+
 class CommonColumnModel {
   String id;
   String image1;

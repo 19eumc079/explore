@@ -1,5 +1,6 @@
 import 'package:explore/pages/home_page/home_page_components/common_column.dart';
 import 'package:explore/styles/styles.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:explore/pages/pages.dart';
 
@@ -11,19 +12,19 @@ class MainPage extends StatelessWidget {
 
   List<CommonRowModel> name1 = [
     CommonRowModel(
-        id: "2", name: "wed..", status1: "Online", image1: "assets/a1.jpg"),
+        id: "1", name: "wed..", status1: "Online", image1: "assets/g1.jpg"),
     CommonRowModel(
-        id: "3", name: "aadams", status1: "Online", image1: "assets/a2.jpg"),
+        id: "2", name: "aadams", status1: "Offline", image1: "assets/a2.jpg"),
     CommonRowModel(
-        id: "4", name: "Jenna", status1: "Online", image1: "assets/a3.jpg"),
+        id: "3", name: "Jenna", status1: "Offline", image1: "assets/a3.jpg"),
     CommonRowModel(
-        id: "1", name: "Ricci", status1: "Offline", image1: "assets/a4.jpg"),
+        id: "4", name: "Ricci", status1: "Offline", image1: "assets/a4.jpg"),
     CommonRowModel(
-        id: "1", name: "Dia", status1: "Offline", image1: "assets/a6.jpg"),
+        id: "5", name: "Dia", status1: "Offline", image1: "assets/a6.jpg"),
     CommonRowModel(
-        id: "1", name: "Bali", status1: "Online", image1: "assets/a2.jpg"),
+        id: "6", name: "Bali", status1: "Offline", image1: "assets/a2.jpg"),
     CommonRowModel(
-        id: "1", name: "Wed..", status1: "Offline", image1: "assets/a1.jpg"),
+        id: "7", name: "Wed..", status1: "Offline", image1: "assets/a1.jpg"),
   ];
 
   @override
@@ -79,7 +80,7 @@ class MainPage extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                       builder: (BuildContext context) =>
-                                          FirstPage()));
+                                          AttentionPage()));
                             },
                           )),
                     ),
@@ -87,18 +88,7 @@ class MainPage extends StatelessWidget {
                     ///////List View
                     Expanded(
                       flex: 2,
-                      child: ListView(
-                        children: [
-                          CommonColumn(),
-                          CommonColumn(),
-                          CommonColumn(),
-                          CommonColumn(),
-                          CommonColumn(),
-                          CommonColumn(),
-                          CommonColumn(),
-                          CommonColumn(),
-                        ],
-                      ),
+                      child: CommonColumn(),
                     ),
                   ],
                 ),

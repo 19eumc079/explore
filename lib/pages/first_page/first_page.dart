@@ -1,3 +1,5 @@
+import 'package:camera/camera.dart';
+import 'package:explore/pages/camera_page.dart';
 import 'package:explore/pages/first_page/first_page_components/chatbox.dart';
 import 'package:explore/pages/home_page/home_page.dart';
 import 'package:explore/styles/styles.dart';
@@ -62,7 +64,7 @@ class _FirstPage extends State<FirstPage> {
           ),
           title: ListTile(
             leading: CircleAvatar(
-              backgroundColor: AppColor.secondaryColor,
+              backgroundColor: Colors.green,
               radius: 27,
               child: CircleAvatar(
                 radius: 25,
@@ -74,10 +76,17 @@ class _FirstPage extends State<FirstPage> {
               style: HeaderFonts.secondaryText,
             ),
           ),
-          actions: const [
+          actions: [
             Padding(
                 padding: EdgeInsets.only(right: 10),
-                child: Icon(Icons.more_vert_rounded))
+                child: IconButton(
+                    onPressed: () async {
+                      await availableCameras().then((value) => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => CameraPage(cameras: value))));
+                    },
+                    icon: Icon(Icons.camera_alt_outlined)))
           ],
           toolbarHeight: MediaQuery.of(context).size.height / 11,
           elevation: 0,
